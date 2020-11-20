@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Log in with your account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<div>
+    <table>
+        <thead>
+        <th>ID</th>
+        <th>UserName</th>
+        <th>Password</th>
+        <th>Roles</th>
+        </thead>
+        <div th:each="user : ${allUsers}">
+            <tr>
+                <td th:text="${user.id}"/>
+                <td th:text="${user.username}"/>
+                <td th:text="${user.password}"/>
+                <td><div th:each="role : ${user.roles}"><p th:text="${role.name}"></p></div>
+                </td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="userId" th:value="${user.id}"/>
+                        <input type="hidden" name="action" th:value="delete"/>
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </div>
+    </table>
+    <a href="/">Главная</a>
+</div>
+</body>
+</html>
