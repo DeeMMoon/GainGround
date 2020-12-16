@@ -31,7 +31,7 @@ public class BlogController {
         return "post-home";
     }
     @GetMapping("/blog/add")
-    public String blogAdd(Model model){
+    public String blogAdd(){
         return "blog-add";
     }
     @PostMapping("/blog/add")
@@ -64,7 +64,7 @@ public class BlogController {
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post",res);
-        return "blog-edit";
+        return "post-edit";
     }
     @PostMapping("/blog/{id}/edit")
     public String blogPostUpdate(@PathVariable(value = "id") long postId, @RequestParam String title, @RequestParam String anons,
@@ -77,7 +77,7 @@ public class BlogController {
         return "redirect:/blog";
     }
     @PostMapping("/blog/{id}/remove")
-    public String blogPostDelete(@PathVariable(value = "id") long postId, Model model){
+    public String blogPostDelete(@PathVariable(value = "id") long postId){
         Post post = postRepository.findById(postId).orElseThrow();
         postRepository.delete(post);
         return "redirect:/blog";

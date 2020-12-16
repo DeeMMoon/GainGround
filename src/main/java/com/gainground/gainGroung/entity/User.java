@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Set;
@@ -15,6 +16,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Size(min=2, message = "Не меньше 5 знаков")
+    @Email()
     private String username;
     @Size(min=2, message = "Не меньше 5 знаков")
     private String password;
@@ -22,6 +24,9 @@ public class User implements UserDetails {
     private String passwordConfirm;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    private ProfileEmpl profileEmpl;
 
 
 
@@ -95,4 +100,14 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    public ProfileEmpl getProfileEmpl() {
+        return profileEmpl;
+    }
+    public Long getProfileEmpId(){
+        return profileEmpl.getId();
+    }
+
+    public void setProfileEmpl(ProfileEmpl profileEmpl) {
+        this.profileEmpl = profileEmpl;
+    }
 }

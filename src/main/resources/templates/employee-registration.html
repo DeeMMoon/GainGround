@@ -15,10 +15,9 @@
     <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
     <hr>
         <form action="#" th:action="@{/employee}"  th:object="${userForm}" method="post">
-        <h2 class="form-signin-heading">Login</h2>
             <p>
             <label for="username">Username</label>
-            <input type="text" id="username" th:field="*{username}"  class="form-control" placeholder="Username" >
+            <input type="email" id="username" th:field="*{username}"  class="form-control" placeholder="Username" >
         </p>
         <p>
             <label for="password">Password</label>
@@ -28,7 +27,7 @@
                 <label for="passwordConfim">PasswordConf</label>
                 <input type="password" id="passwordConfim" th:field="*{passwordConfirm}"  class="form-control" placeholder="Password">
             </p>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегестрироваться</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрироваться</button>
     </form>
 </div>
 </body>

@@ -19,7 +19,7 @@ public class MainController {
     @Autowired
     RoleRepository roleRepository;
     @GetMapping("/home/")
-    public String mainPageEmpl(Model model,User user) {
+    public String mainPageEmpl() {
        return "home";
     }
     @GetMapping("/homeEmpl")
@@ -32,11 +32,4 @@ public class MainController {
         model.addAttribute("title", "Новости GainGround");
         return "employer-home";
     }
-
-//    @GetMapping("/")
-//    public String home(Model model) {
-//        model.addAttribute("title", "Новости GainGround");
-//        return "home";
-//    }
-
 }

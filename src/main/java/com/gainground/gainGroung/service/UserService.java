@@ -1,8 +1,10 @@
 package com.gainground.gainGroung.service;
 
+import com.gainground.gainGroung.entity.ProfileEmpl;
 import com.gainground.gainGroung.entity.Role;
 import com.gainground.gainGroung.entity.User;
 import com.gainground.gainGroung.repository.PostRepository;
+import com.gainground.gainGroung.repository.ProfileRepository;
 import com.gainground.gainGroung.repository.RoleRepository;
 import com.gainground.gainGroung.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +33,9 @@ public class UserService implements UserDetailsService {
     BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     PostRepository postRepository;
+    @Autowired
+    ProfileRepository profileRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
@@ -56,8 +62,11 @@ public class UserService implements UserDetailsService {
         if (userFromDB != null) {
             return false;
         }
+        ProfileEmpl profileEmpl = new ProfileEmpl();
         user.setRoles(Collections.singleton(new Role(1L, "ROLE_EMPL")));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setProfileEmpl(profileEmpl);
+        profileEmpl.setProfile(user);
         userRepository.save(user);
         return true;
     }
@@ -78,8 +87,11 @@ public class UserService implements UserDetailsService {
         if (userFromDB != null) {
             return false;
         }
+        ProfileEmpl profileEmpl = new ProfileEmpl();
         user.setRoles(Collections.singleton(new Role((long) 2, "ROLE_EMPLR")));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setProfileEmpl(profileEmpl);
+        profileEmpl.setProfile(user);
         userRepository.save(user);
         return true;
     }

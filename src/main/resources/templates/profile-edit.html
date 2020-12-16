@@ -1,0 +1,30 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<body>
+<div class="container">
+        <form class="form-signin" method="post" action="/login">
+        <h2 class="form-signin-heading">First Name</h2>
+        <p>
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="First Name" class="form-control" placeholder="First Name" required>
+        </p>
+        <p>
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="Last Name" class="form-control" placeholder="Last Name" required>
+        </p>
+         <p>
+        <label for="last_name">Country</label>
+        <input type="text" id="country" name="country" class="form-control" placeholder="Country" required>
+        </p>
+        <p>
+        <label for="phone_number">Phone Number</label>
+        <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Phone Number" required>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+    <a href="/registration">Регестрация</a>
+</div>
+</body>
+</head>
+</html>

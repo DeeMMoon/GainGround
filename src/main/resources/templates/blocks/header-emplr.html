@@ -1,14 +1,15 @@
-<div th:fragment="header">
+<div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
         <h5 class="my-0 mr-md-auto font-weight-normal">GainGround <img src=""></h5>
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="/homeEmplr">Главная</a>
-            <a class="p-2 text-dark" href="/about">Сообщения</a>
-            <a class="p-2 text-dark" href="/about">Рейтинг</a>
+            <a class="p-2 text-dark" href="/profile">Профиль</a>
+            <a class="p-2 text-dark" href="/messages">Сообщения</a>
+            <a class="p-2 text-dark" href="/rating">Рейтинг</a>
             <a class="p-2 text-dark" href="/about">Про нас</a>
         </nav>
         <form action="/logout" method="post">
-            <a class="btn btn-outline-primary" href="/login">Выйти</a>
+            <a class="btn btn-outline-primary">Выйти</a>
         </form>
     </div>
 </div>

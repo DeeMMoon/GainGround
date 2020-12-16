@@ -8,19 +8,26 @@
 </head>
 
 <body>
-<div>
-    <table>
+<header th:insert="blocks/header-admin :: header"></header>
+<div class="container mt-5">
+    <table >
         <thead>
         <th>ID</th>
         <th>UserName</th>
-        <th>Password</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>PhoneNumber</th>
+        <th>Leafs</th>
         <th>Roles</th>
         </thead>
-        <div th:each="user : ${allUsers}">
+        <div th:each="user : ${allUsers}" >
             <tr>
                 <td th:text="${user.id}"/>
                 <td th:text="${user.username}"/>
-                <td th:text="${user.password}"/>
+                <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.first_name}"></p></div></td>
+                <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.last_name}"></p></div></td>
+                <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.phoneNumber}"></p></div></td>
+                <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.leafs}"></p></div></td>
                 <td><div th:each="role : ${user.roles}"><p th:text="${role.name}"></p></div>
                 </td>
                 <td>
