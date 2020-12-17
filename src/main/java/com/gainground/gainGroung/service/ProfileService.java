@@ -30,4 +30,11 @@ public class ProfileService {
     public List<ProfileEmpl> allProfiles() {
         return profileRepository.findAll();
     }
+    public void setProfileLeafsById(Long profId, Integer leafs) {
+        ProfileEmpl profileEmpl = profileRepository.findProfileEmplById(profId);
+        if (profileRepository.findById(profId).isPresent()) {
+            profileEmpl.setLeafs(leafs);
+            profileRepository.save(profileEmpl);
+        }
+    }
 }

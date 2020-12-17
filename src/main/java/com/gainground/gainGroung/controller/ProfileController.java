@@ -22,7 +22,12 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public String profileMain(@AuthenticationPrincipal User user, Model model){
-        //model.addAttribute("profile",user.getPr);
+        ProfileEmpl profileEmpl = profileRepository.findProfileEmplById(user.getProfileEmpl().getId());
+        if (profileEmpl.getFirst_name()==null) profileEmpl.setFirst_name("undefined");
+        if (profileEmpl.getLast_name()==null) profileEmpl.setLast_name("undefined");
+        if (profileEmpl.getPhoneNumber()==null) profileEmpl.setFirst_name("undefined");
+        if (profileEmpl.getLocale()==null) profileEmpl.setLocale("undefined");
+        model.addAttribute("profile",profileEmpl);
         return "profile";
     }
     @GetMapping("/profile/edit")

@@ -20,7 +20,7 @@ public class ProfileEmpl {
 //    @JsonFormat(pattern="dd/MM/yyyy")
 //    @NonNull
 //    private Date age;
-    private int leafs;
+    private Integer leafs;
     @OneToOne(mappedBy = "profileEmpl", cascade = CascadeType.ALL)
     private User profile;
 
@@ -98,7 +98,7 @@ public class ProfileEmpl {
         return leafs;
     }
 
-    public void setLeafs(int leafs) {
+    public void setLeafs(Integer leafs) {
         this.leafs = leafs;
     }
 }

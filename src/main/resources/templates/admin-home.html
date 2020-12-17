@@ -9,16 +9,16 @@
 
 <body>
 <header th:insert="blocks/header-admin :: header"></header>
-<div class="container mt-5">
+<div class="container mt-7">
     <table >
         <thead>
-        <th>ID</th>
-        <th>UserName</th>
-        <th>FirstName</th>
-        <th>LastName</th>
-        <th>PhoneNumber</th>
-        <th>Leafs</th>
-        <th>Roles</th>
+        <th>ID</th><br>
+        <th>UserName</th><br>
+        <th>FirstName</th><br>
+        <th>LastName</th><br>
+        <th>PhoneNumber</th><br>
+        <th>Leafs</th><br>
+        <th>Roles</th><br>
         </thead>
         <div th:each="user : ${allUsers}" >
             <tr>
@@ -36,6 +36,17 @@
                         <input type="hidden" name="action" th:value="delete"/>
                         <button type="submit">Delete</button>
                     </form>
+                </td>
+                 <td>
+                        <form  method="post">
+                            <div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}">
+                        <input type="hidden" name="profId" th:value="${profile.id}"/>
+                        <input type="hidden" name="action" th:value="install"/>
+                        <input type="text" name="leafs"/>
+                        <button type="submit">Install new leafs</button>
+                            </div>
+                    </form>
+
                 </td>
             </tr>
         </div>

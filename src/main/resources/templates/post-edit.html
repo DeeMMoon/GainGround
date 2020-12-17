@@ -8,7 +8,7 @@
 <div class="container mt-5">
     <h1>Добавление достижения</h1>
     <div th:each="el:${post}">
-    <form action="/blog/add" method="post">
+    <form th:action="'/blog/' + ${el.id} + '/edit'" method="post">
         <input type="text" name="title" th:value="${el.title}" placeholder="Введите название статьи" class="form-control"><br>
         <input type="text" name="anons" th:value="${el.anons}" placeholder="Введите анонс статьи" class="form-control"><br>
         <textarea name="full_text" placeholder="Введите содержание статьи" class="form-control" th:text="${el.fullText}"/><br>
