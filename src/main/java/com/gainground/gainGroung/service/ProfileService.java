@@ -1,6 +1,7 @@
 package com.gainground.gainGroung.service;
 
 import com.gainground.gainGroung.entity.ProfileEmpl;
+import com.gainground.gainGroung.entity.Role;
 import com.gainground.gainGroung.entity.User;
 import com.gainground.gainGroung.repository.PostRepository;
 import com.gainground.gainGroung.repository.ProfileRepository;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 @Service

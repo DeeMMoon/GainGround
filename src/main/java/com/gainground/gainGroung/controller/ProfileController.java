@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 @Controller
 public class ProfileController {
     @Autowired
@@ -23,10 +26,6 @@ public class ProfileController {
     @GetMapping("/profile")
     public String profileMain(@AuthenticationPrincipal User user, Model model){
         ProfileEmpl profileEmpl = profileRepository.findProfileEmplById(user.getProfileEmpl().getId());
-        if (profileEmpl.getFirst_name()==null) profileEmpl.setFirst_name("undefined");
-        if (profileEmpl.getLast_name()==null) profileEmpl.setLast_name("undefined");
-        if (profileEmpl.getPhoneNumber()==null) profileEmpl.setFirst_name("undefined");
-        if (profileEmpl.getLocale()==null) profileEmpl.setLocale("undefined");
         model.addAttribute("profile",profileEmpl);
         return "profile";
     }
@@ -38,11 +37,20 @@ public class ProfileController {
     @PostMapping("/profile/edit")
     public String profileEditForm(
             @AuthenticationPrincipal User user,
-            @RequestParam String title,
-            @RequestParam String anons,
-            @RequestParam String full_text, Model model){
-        //ProfileEmpl profileEmpl = profileRepository.
-        //postRepository.save(post);
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam String year,
+            @RequestParam String month,
+            @RequestParam String day,
+            @RequestParam String country,
+            @RequestParam String phoneNumber,Model model){
+        ProfileEmpl profileEmpl = profileRepository.findProfileEmplById(user.getProfileEmpl().getId());
+        profileEmpl.setFirst_name(firstName);
+        profileEmpl.setLast_name(lastName);
+        profileEmpl.setAge(day+"."+month+"."+year);
+        profileEmpl.setLocale(country);
+        profileEmpl.setPhoneNumber(phoneNumber);
+        profileRepository.save(profileEmpl);
         return "redirect:/profile";
     }
 }

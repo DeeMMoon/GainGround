@@ -4,22 +4,28 @@
 <body>
 <div class="container">
         <form class="form-signin" method="post" action="/profile/edit">
-        <h2 class="form-signin-heading">First Name</h2>
+        <h2 class="form-signin-heading">Profile</h2>
         <p>
-            <label for="first_name">First Name</label>
-            <input type="text" id="first_name" name="First Name" class="form-control" placeholder="First Name" required>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" required>
         </p>
         <p>
-        <label for="last_name">Last Name</label>
-        <input type="text" id="last_name" name="Last Name" class="form-control" placeholder="Last Name" required>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" required>
         </p>
+            <p>
+            <label>Birth Date</label>
+            <input type="text" id="year" name="year" class="form-control" placeholder="Year" required>
+            <input type="text" id="month" name="month" class="form-control" placeholder="Month" required>
+            <input type="text" id="day" name="day" class="form-control" placeholder="Day" required>
+            </p>
          <p>
-        <label for="last_name">Country</label>
+        <label for="country">Country</label>
         <input type="text" id="country" name="country" class="form-control" placeholder="Country" required>
         </p>
         <p>
-        <label for="phone_number">Phone Number</label>
-        <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Phone Number" required>
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone Number" required>
         </p>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
     </form>

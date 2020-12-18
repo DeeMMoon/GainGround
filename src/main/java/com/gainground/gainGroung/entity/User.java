@@ -103,9 +103,6 @@ public class User implements UserDetails {
     public ProfileEmpl getProfileEmpl() {
         return profileEmpl;
     }
-    public Long getProfileEmpId(){
-        return profileEmpl.getId();
-    }
 
     public void setProfileEmpl(ProfileEmpl profileEmpl) {
         this.profileEmpl = profileEmpl;

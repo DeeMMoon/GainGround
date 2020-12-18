@@ -5,9 +5,9 @@ import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Entity
 @Table(name = "profile_empl")
@@ -17,9 +17,7 @@ public class ProfileEmpl {
     private Long id;
     private String first_name, last_name;
     private String locale, phoneNumber;
-//    @JsonFormat(pattern="dd/MM/yyyy")
-//    @NonNull
-//    private Date age;
+    private String age;
     private Integer leafs;
     @OneToOne(mappedBy = "profileEmpl", cascade = CascadeType.ALL)
     private User profile;
@@ -27,11 +25,11 @@ public class ProfileEmpl {
     public ProfileEmpl() {
     }
 
-    public ProfileEmpl(String first_name, String last_name, String locale, Date age, String phoneNumber, User user) {
+    public ProfileEmpl(String first_name, String last_name, String locale, String age, String phoneNumber, User user) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.locale = locale;
-        //this.age = age;
+        this.age = age;
         this.phoneNumber=phoneNumber;
         profile = user;
     }
@@ -78,13 +76,13 @@ public class ProfileEmpl {
         this.phoneNumber = phoneNumber;
     }
 
-//    public Date getAge() {
-//        return age;
-//    }
-//
-//    public void setAge(Date age) {
-//        this.age = age;
-//    }
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
 
     public User getProfile() {
         return profile;
@@ -101,4 +99,5 @@ public class ProfileEmpl {
     public void setLeafs(Integer leafs) {
         this.leafs = leafs;
     }
+
 }

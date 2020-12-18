@@ -24,4 +24,5 @@ public class PostService {
     public List<Post> authorPosts(Long id){
         return postRepository.findAllByUserIdPost(id);
     }
+
 }

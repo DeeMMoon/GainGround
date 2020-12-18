@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Log in with your account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header th:insert="blocks/header-empl :: header"></header>
+<div class="container">
+    <table class="container">
+        <thead>
+        <th>Name</th><br>
+        <th>Leafs</th><br>
+        </thead>
+        <div th:each="user : ${allProfiles}" >
+            <tr>
+                <td><a th:href="'/rating/' + ${user.id}"><p th:text="${user.first_name +' '+ user.last_name}"/></a></td>
+                <td th:text="${user.leafs}"/>
+            </tr>
+        </div>
+    </table>
+</div>
+</body>
+</html>

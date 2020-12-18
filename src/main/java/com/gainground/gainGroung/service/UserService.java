@@ -63,6 +63,12 @@ public class UserService implements UserDetailsService {
             return false;
         }
         ProfileEmpl profileEmpl = new ProfileEmpl();
+        profileEmpl.setLeafs(0);
+        if (profileEmpl.getFirst_name()==null) profileEmpl.setFirst_name("undefined");
+        if (profileEmpl.getLast_name()==null) profileEmpl.setLast_name("undefined");
+        if (profileEmpl.getPhoneNumber()==null) profileEmpl.setFirst_name("undefined");
+        if (profileEmpl.getLocale()==null) profileEmpl.setLocale("undefined");
+        if (profileEmpl.getAge()==null) profileEmpl.setAge("undefined");
         user.setRoles(Collections.singleton(new Role(1L, "ROLE_EMPL")));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setProfileEmpl(profileEmpl);
