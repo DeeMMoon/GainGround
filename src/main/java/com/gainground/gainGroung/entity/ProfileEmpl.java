@@ -18,7 +18,8 @@ public class ProfileEmpl {
     private String first_name, last_name;
     private String locale, phoneNumber;
     private String age;
-    private Integer leafs;
+    private String information;
+    private Long leafs;
     @OneToOne(mappedBy = "profileEmpl", cascade = CascadeType.ALL)
     private User profile;
 
@@ -33,8 +34,6 @@ public class ProfileEmpl {
         this.phoneNumber=phoneNumber;
         profile = user;
     }
-
-
 
     public Long getId() {
         return id;
@@ -84,6 +83,22 @@ public class ProfileEmpl {
         this.age = age;
     }
 
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
+    }
+
+    public Long getLeafs() {
+        return leafs;
+    }
+
+    public void setLeafs(Long leafs) {
+        this.leafs = leafs;
+    }
+
     public User getProfile() {
         return profile;
     }
@@ -91,13 +106,4 @@ public class ProfileEmpl {
     public void setProfile(User profile) {
         this.profile = profile;
     }
-
-    public int getLeafs() {
-        return leafs;
-    }
-
-    public void setLeafs(Integer leafs) {
-        this.leafs = leafs;
-    }
-
 }

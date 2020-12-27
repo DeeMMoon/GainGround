@@ -1,0 +1,54 @@
+@import "/css/all.css" screen;
+@import "/css/header.css" screen;
+@import "/css/footer.css" screen;
+
+/*.card {*/
+/*    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+/*    max-width: 300px;*/
+/*    margin: auto;*/
+/*    text-align: center;*/
+/*}*/
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+.modal-content {
+    width: 25%; /* Could be more or less, depending on screen size */
+    border: none;
+}
+
+.profile-card-img {
+    border-radius: calc(.25rem - 1px);
+}
+
+.placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.m-c-1 {
+    top: 50%;
+    left: 33.3333333333%;
+    right: 66.6666666666%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 300px;
+}
+
+.m-c-2 {
+    top: 50%;
+    left: 66.6666666666%;
+    right: 33.3333333333%;
+    transform: translate(-50%, -50%);
+}
+
+.no-padding {
+    padding: 0;
+    height: 100%;
+}

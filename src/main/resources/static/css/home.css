@@ -1,0 +1,22 @@
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+.up-section {
+    background-color: #dddddd;
+    text-align: center;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+h1 {
+    font-size: 50px;
+    word-break: break-all;
+}
+

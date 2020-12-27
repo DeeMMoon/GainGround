@@ -1,0 +1,10 @@
+@import "/css/all.css" screen;
+@import "/css/header.css" screen;
+@import "/css/footer.css" screen;
+@import "/css/home.css" screen;
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}

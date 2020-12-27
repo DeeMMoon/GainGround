@@ -1,0 +1,111 @@
+@import "/css/button.css" screen;
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f1f1;
+    margin: 0;
+    font-family: Arial;
+}
+
+p {
+    margin-top: 0.6em; /* Отступ сверху */
+    margin-bottom: 0.2em; /* Отступ снизу */
+}
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* Center website */
+.main {
+    display: block;
+    max-width: 100%;
+    margin: 0;
+}
+
+.main-container {
+    display: block;
+    max-width: 75%;
+    margin: auto;
+}
+
+/* Add padding to container elements */
+.container {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+
+.title {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    word-wrap: break-word;
+    color: grey;
+    font-size: 18px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: block;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/3e/Grass_summer.jpg);
+    background-color: #474e5d;
+
+    /*!* Control the height of the image *!*/
+    /*min-height: 100%;*/
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*margin: 15% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    /*border: 1px solid #888;*/
+    width: 35%; /* Could be more or less, depending on screen size */
+    /*box-shadow: 0 -2px 5px #D8D4D4;*/
+
+}
+
+.shadow {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
+.align-items-center {
+    align-items: center!important;
+}
+.justify-content-between {
+    justify-content: space-between!important;
+}
+.d-flex {
+    display: flex!important;
+}
+
+.padding {
+    padding-top: 3rem!important;
+    padding-bottom: 3rem!important;
+}
+
+.text-center {
+    text-align: center!important;
+}

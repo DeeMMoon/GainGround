@@ -1,17 +1,49 @@
+
 <div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <h5 class="my-0 mr-md-auto font-weight-normal">GainGround <img src=""></h5>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="/homeEmpl">Главная</a>
-            <a class="p-2 text-dark" href="/profile">Профиль</a>
-            <a class="p-2 text-dark" href="/messages">Сообщения</a>
-            <a class="p-2 text-dark" href="/rating">Рейтинг</a>
-            <a class="p-2 text-dark" href="/blog">Мои достижения</a>
-            <a class="p-2 text-dark" href="/blog/add">Добавить достижение</a>
-            <a class="p-2 text-dark" href="/about">Про нас</a>
-        </nav>
-        <form action="/logout" method="post">
-        <button type="submit" class="btn btn-outline-primary">Выйти</button>
-        </form>
+    <div class="topnav" id="myTopnav" >
+        <section id="header">
+            <a class="header-modal-content"><b>GainGround</b></a>
+            <a class="btn header-text active" href="/homeEmpl">Home</a>
+            <a class="btn header-text" href="/profile">Profile</a>
+            <a class="btn header-text" href="/messages">Messages</a>
+            <a class="btn header-text" href="/rating">Rating</a>
+            <a class="btn header-text" href="/blog">My Achievements</a>
+            <a class="btn header-text" href="/blog/add">Add Achievement</a>
+            <a class="btn header-text" href="/about">About Us</a>
+        </section>
+        <aside>
+            <a class="header-exit" href="/logout">Log out</a>
+        </aside>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
+    <script th:inline="javascript">
+        /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+    <div style="position:absolute;top:30px;left:0px;width:300px;height:229px;background:url('https://uguide.ru/js/script/vetka.png')"></div>
+
+    <script type="text/javascript" src="https://uguide.ru/js/script/snowfall.min.js"></script>
+<!--    <script th:inline="javascript">-->
+<!--        // Add active class to the current button (highlight it)-->
+<!--        var header = document.getElementById("header");-->
+<!--        var btns = header.getElementsByClassName("btn");-->
+<!--        for (var i = 0; i < btns.length; i++) {-->
+<!--            btns[i].addEventListener("click", function() {-->
+<!--                var current = document.getElementsByClassName("active");-->
+<!--                current[0].className = current[0].className.replace(" active", "");-->
+<!--                this.className += " active";-->
+<!--            });-->
+<!--        }-->
+<!--    </script>-->
 </div>

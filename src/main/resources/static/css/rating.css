@@ -1,0 +1,46 @@
+@import "/css/all.css" screen;
+@import "/css/header.css" screen;
+@import "/css/footer.css" screen;
+@import "/css/home.css" screen;
+
+a {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+p {
+    margin-top: 0.2em; /* Отступ сверху */
+    margin-bottom: 0.2em; /* Отступ снизу */
+}
+
+thead {
+    background-color: #8a8a8a;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+th {
+    color:#f2f2f2;
+}
+
+td {
+    color: black;;
+}
+
+th, td {
+    text-align: left;
+    padding-top: 0.4em; /* Отступ сверху */
+    padding-bottom: 0.4em; /* Отступ снизу */
+    padding-left: 0.7em;
+    text-decoration: none;
+    font-size: 32px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

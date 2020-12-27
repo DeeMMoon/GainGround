@@ -1,12 +1,27 @@
+
 <div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-        <h5 class="my-0 mr-md-auto font-weight-normal">GainGround <img src=""></h5>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="/admin">Главная</a>
-            <a class="p-2 text-dark" href="/statistic">Статистика</a>
-        </nav>
-        <form action="/logout" method="post">
-            <button type="submit" class="btn btn-outline-primary">Выйти</button>
-        </form>
+    <div class="topnav" id="myTopnav">
+        <section>
+            <a class="header-modal-content"><b>GainGround</b></a>
+            <a class="active" href="/homeEmpl">Home</a>
+            <a class="header-text" href="/statistic">Statistics</a>
+        </section>
+        <aside>
+            <a class="header-exit" href="/logout">Log out</a>
+        </aside>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
+    <script th:inline="javascript">
+        /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
 </div>

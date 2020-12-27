@@ -1,0 +1,21 @@
+@import "/css/all.css" screen;
+@import "/css/country.css" screen;
+@import "/css/header.css" screen;
+@import "/css/footer.css" screen;
+
+/* Full-width input fields */
+input[type=text], textarea {
+    width: 100%;
+    padding: 15px;
+    margin-top: 0.2em; /* Отступ сверху */
+    margin-bottom: 0em; /* Отступ снизу */
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus{
+    background-color: #ddd;
+    outline: none;
+}

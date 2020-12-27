@@ -1,5 +1,6 @@
 package com.gainground.gainGroung.controller;
 
+import com.gainground.gainGroung.RoleRedirecter;
 import com.gainground.gainGroung.entity.Post;
 import com.gainground.gainGroung.entity.ProfileEmpl;
 import com.gainground.gainGroung.entity.User;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -36,9 +39,10 @@ public class RatingController {
     private PostRepository postRepository;
 
     @GetMapping("/rating")
-    public String userList(Model model) {
-        model.addAttribute("allProfiles", profileService.allProfiles());
-        return "rating";
+    public String userList(@AuthenticationPrincipal User user,Model model) {
+        List<ProfileEmpl> profileEmpls = profileService.allProfilesEmpl();
+        model.addAttribute("allProfiles", profileEmpls);
+        return RoleRedirecter.redirecter(user, "rating-emplr", "rating-empl");
     }
     @GetMapping("/rating/{profile_id}")
     public String blogDetail(@PathVariable(value = "profile_id") long profId, Model model){

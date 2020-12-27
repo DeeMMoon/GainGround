@@ -1,19 +1,61 @@
+
+<!--<div class="container mt-5">-->
+<!--    <h1>Добавление достижения</h1>-->
+<!--    <div th:each="el:${post}">-->
+<!--    <form th:action="'/blog/' + ${el.id} + '/edit'" method="post">-->
+<!--        <input type="text" name="title" th:value="${el.title}" placeholder="Введите название статьи" class="form-control"><br>-->
+<!--        <input type="text" name="anons" th:value="${el.anons}" placeholder="Введите анонс статьи" class="form-control"><br>-->
+<!--        <textarea name="full_text" placeholder="Введите содержание статьи" class="form-control" th:text="${el.fullText}"/><br>-->
+<!--        <button type="submit" class="btn btn-success">Обновить</button>-->
+<!--    </form>-->
+<!--    </div>-->
+<!--</div>-->
+
+
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/post-edit.css">
+    <title>Edit Achievement</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
+
 <body>
 <header th:insert="blocks/header-empl :: header"></header>
-<div class="container mt-5">
-    <h1>Добавление достижения</h1>
+
+<div class="main">
     <div th:each="el:${post}">
-    <form th:action="'/blog/' + ${el.id} + '/edit'" method="post">
-        <input type="text" name="title" th:value="${el.title}" placeholder="Введите название статьи" class="form-control"><br>
-        <input type="text" name="anons" th:value="${el.anons}" placeholder="Введите анонс статьи" class="form-control"><br>
-        <textarea name="full_text" placeholder="Введите содержание статьи" class="form-control" th:text="${el.fullText}"/><br>
-        <button type="submit" class="btn btn-success">Обновить</button>
-    </form>
+        <form class="modal-content shadow" method="post" th:action="'/blog/' + ${el.id} + '/edit'">
+            <div class="container">
+                <h2 class="form-signin-heading"><b>Edit Achievement</b></h2>
+                <hr>
+                <p>
+                    <label for="title"><b>First Name</b></label>
+                    <input type="text" id="title" name="title" class="form-control" placeholder="Enter article title" th:value="${el.title}" required>
+                </p>
+                <p>
+                    <label for="anons"><b>Last Name</b></label>
+                    <input type="text" id="anons" name="anons" class="form-control" placeholder="Enter article announcement" th:value="${el.anons}" required>
+                </p>
+                <p>
+                    <label for="full_text"><b>Article Content</b></label>
+                    <textarea id="full_text" name="full_text" class="form-control" placeholder="Enter article content" th:text="${el.fullText}" style="height:100px"></textarea>
+                </p>
+
+                <button class="btn subbtn" type="submit">Update</button>
+                <form th:action="'/blog/' + ${el.id} + '/remove'" method="post">
+                    <button class="btn cancelbtn" type="submit">Delete</button>
+                </form>
+            </div>
+        </form>
     </div>
 </div>
+
 <div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

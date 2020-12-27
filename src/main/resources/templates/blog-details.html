@@ -1,21 +1,61 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Achievement</title>
+    <link rel="stylesheet" href="/css/blog-details.css">
 </head>
 <body>
 <header th:insert="blocks/header-empl :: header"></header>
-<div class="container mt-5">
-    <h1></h1>
-    <div th:each="el:${post}" class="alert alert-info mt-2">
-        <h1 th:text="${el.title}"/>
-        <p th:text="${el.fullText}"/>
-        <p><b>Просмотров: </b><span th:text="${el.views}"/><br>
-        <a th:href="'/blog/' + ${el.id} + '/edit'">Редактировать</a>
-            <form th:action="'/blog/' + ${el.id} + '/remove'" method="post">
-        <button class="btn btn-warning" type="submit">Удалить</button>
-    </form>
 
+<div class="main">
+    <div class="modal-content shadow">
+        <div class="container">
+            <div th:each="el:${post}" class="alert alert-info mt-2">
+                <h2 class="text-center" th:text="${el.title}"></h2>
+                <hr>
+                <p>
+                    <label><b>Article Content</b></label>
+                <div class="title" th:text="${el.fullText}"></div>
+                </p>
+                <p>
+                    <label><b>Views:</b></label>
+                <div class="title" th:text="${el.views}"></div>
+                </p>
+
+                <a class="edit" th:href="'/blog/' + ${el.id} + '/edit'" style="color:dodgerblue"><b>Edit Achievement</b></a>
+            </div>
+        </div>
     </div>
 </div>
+
+<!--<div class="modal-content shadow">-->
+<!--    <div class="container">-->
+<!--        <h1>Your Profile</h1>-->
+<!--        <hr>-->
+<!--        <p>-->
+<!--            <label><b>Name</b></label>-->
+<!--        <div class="title" th:text="${profile.first_name+' '+ profile.last_name}"></div>-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label><b>Leafs</b></label>-->
+<!--        <div class="title" th:text="${profile.leafs}"></div>-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label><b>Country</b></label>-->
+<!--        <div class="title" th:text="${profile.locale}"></div>-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label><b>Phone number</b></label>-->
+<!--        <div class="title" th:text="${profile.phoneNumber}"></div>-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            <label><b>Birth Date</b></label>-->
+<!--        <div class="title" th:text="${profile.age}"></div>-->
+<!--        </p>-->
+<!--        <a href="/profile/edit"style="color:dodgerblue"><b>Edit profile</b></a>-->
+<!--    </div>-->
+<!--</div>-->
+
 <div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

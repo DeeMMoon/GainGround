@@ -1,24 +1,56 @@
-<html lang="en">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/login.css"/>
     <title>Login Customer</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <form class="form-signin" method="post" action="/login">
-        <h2 class="form-signin-heading">Login</h2>
-        <p>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
-        </p>
-        <p>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-        </p>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-    <a href="/registration">Регестрация</a>
+<div class="bg-img">
+    <div class="centered">
+        <button onclick="document.getElementById('id01').style.display='block'" class="welcomebtn"><b>Welcome to GainGround</b></button>
+    </div>
 </div>
+
+<div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+    <form class="modal-content shadow" method="post" action="/login">
+        <div class="container">
+            <h1>Sign In</h1>
+            <hr>
+            <p>
+                <label for="username"><b>Username</b></label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required>
+            </p>
+            <p>
+                <label for="password"><b>Password</b></label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            </p>
+
+            <p>Don't have an account? <a href="/registration" style="color:dodgerblue"><b>Register now</b></a>.</p>
+            <button class="signupbtn" type="submit">Sign in</button>
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script th:inline="javascript">
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 </body>
 </html>

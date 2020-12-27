@@ -1,0 +1,126 @@
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x)/ -2);
+    margin-left: calc(var(--bs-gutter-x)/ -2);
+}
+
+.placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.card-img {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+
+.btn-group {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.text-muted {
+    color: #6c757d!important;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+    @media (min-width: 576px) {
+        .container{
+            max-width: 540px;
+        }
+        .container{
+            width: 100%;
+            padding-right: var(--bs-gutter-x,.75rem);
+            padding-left: var(--bs-gutter-x,.75rem);
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .row-cols-3>* {
+        flex: 0 0 auto;
+        width: 33.3333333333%;
+    }
+    @media (min-width: 576px) {
+        .row-cols-2>* {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+        .row-cols-1>* {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+        .column {
+            flex: 1 0 0%;
+        }
+    }
+}
+
+.row>* {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x)/ 2);
+    padding-left: calc(var(--bs-gutter-x)/ 2);
+    margin-top: var(--bs-gutter-y);
+}
+
+@media (min-width: 768px) {
+    @media (min-width: 576px) {
+        .column {
+            flex: 1 0 0%;
+        }
+        @media (min-width: 768px) {
+            @media (min-width: 576px) {
+                .row-cols-1>* {
+                    flex: 0 0 auto;
+                    width: 100%;
+                }
+                @media (min-width: 768px) {
+                    @media (min-width: 576px) {
+                        .row-cols-2>* {
+                            flex: 0 0 auto;
+                            width: 50%;
+                        }
+                        @media (min-width: 768px) {
+                            .row-cols-3>* {
+                                flex: 0 0 auto;
+                                width: 33.3333333333%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

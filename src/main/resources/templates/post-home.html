@@ -2,18 +2,51 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/post-home.css">
+    <title>My Achievements</title>
 </head>
 <body>
 <header th:insert="blocks/header-empl :: header"></header>
-<div class="container mt-5">
-    <h1>Мои достижения</h1>
-        <div th:each=" el : ${posts}" >
-            <h3 th:text="${el.title}" name="title"/>
-            <p th:text="${el.anons}" name="anons"/>
-            <a th:href="'/blog/' + ${el.id}">Детальнее</a>
+
+<div class="main">
+    <section class="up-section padding ">
+        <div class="container">
+            <h1 >My Achievements</h1>
+            <h2>Here are your achievements.</h2>
         </div>
+    </section>
+
+    <div class="main-container padding">
+    <div class="row row-cols-1 row-cols-2 row-cols-3">
+        <div th:each=" el : ${posts}"  class="column">
+            <div class="card shadow">
+                <svg class="placeholder-img card-img" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Achievement">
+                    <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Achievement</text></svg>
+                <div class="card-body">
+                    <h3 class="card-text" th:text="${el.title}" id="title"></h3>
+                    <p class="card-text" th:text="${el.anons}" id="anons"></p>
+                    <div class="d-flex justify-content-between align-items-center">
+<!--                        <div class="btn-group">-->
+<!--&lt;!&ndash;                            <button type="button" th:onclick="'/blog/' + ${el.id}" class="btn">More details</button>&ndash;&gt;-->
+<!--                            <button th:attr="onclick=|'/blog/' + upload('${el.id}')|" class="btn">More details</button>-->
+<!--&lt;!&ndash;                            th:attr="onclick=|upload(''/blog/' + ${el.id}')|"&ndash;&gt;-->
+<!--&lt;!&ndash;                            th:attr="onclick=|upload('${gallery}')|"&ndash;&gt;-->
+<!--                        </div>-->
+                        <div class="pseudo-button-container shadow">
+                            <div class="pseudo-button">
+                                <a class="p-b" th:href="'/blog/' + ${el.id}">More details</a>
+                            </div>
+                        </div>
+                        <small class="text-muted">1 mins</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 <div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>
+

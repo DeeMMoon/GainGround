@@ -1,57 +1,65 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="utf-8">
     <title>Log in with your account</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 
 <body>
 <header th:insert="blocks/header-admin :: header"></header>
-<div class="container mt-7">
-    <table >
+
+<div class="main-container padding">
+    <table class="table">
         <thead>
-        <th>ID</th><br>
-        <th>UserName</th><br>
-        <th>FirstName</th><br>
-        <th>LastName</th><br>
-        <th>PhoneNumber</th><br>
-        <th>Leafs</th><br>
-        <th>Roles</th><br>
+        <tr>
+            <th>ID<br></th>
+            <th>UserName<br></th>
+            <th>FirstName<br></th>
+            <th>LastName<br></th>
+            <th>PhoneNumber<br></th>
+            <th>Leafs<br></th>
+            <th>Roles<br></th>
+        </tr>
         </thead>
-        <div th:each="user : ${allUsers}" >
-            <tr>
-                <td th:text="${user.id}"/>
-                <td th:text="${user.username}"/>
-                <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.first_name}"></p></div></td>
-                <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.last_name}"></p></div></td>
-                <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.phoneNumber}"></p></div></td>
-                <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.leafs}"></p></div></td>
-                <td><div th:each="role : ${user.roles}"><p th:text="${role.name}"></p></div>
-                </td>
-                <td>
-                    <form method="post">
-                        <input type="hidden" name="userId" th:value="${user.id}"/>
-                        <input type="hidden" name="action" th:value="delete"/>
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
-                 <td>
-                        <form  method="post">
-                            <div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}">
+
+        <tr th:each="user : ${allUsers}" >
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.username}"></td>
+            <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.first_name}"></p></div></td>
+            <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.last_name}"></p></div></td>
+            <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.phoneNumber}"></p></div></td>
+            <td><div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}"><p th:text="${profile.leafs}"></p></div></td>
+            <td><div th:each="role : ${user.roles}"><p th:text="${role.name}"></p></div>
+            </td>
+            <td>
+                <form method="post">
+                    <input type="hidden" name="userId" th:value="${user.id}"/>
+                    <input type="hidden" name="action" th:value="delete"/>
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+            <td>
+                <form  method="post">
+                    <div th:each="profile : ${allProfiles}" th:if="${profile == user.profileEmpl}">
                         <input type="hidden" name="profId" th:value="${profile.id}"/>
                         <input type="hidden" name="action" th:value="install"/>
                         <input type="text" name="leafs"/>
                         <button type="submit">Install new leafs</button>
-                            </div>
-                    </form>
+                    </div>
+                </form>
+            </td>
+        </tr>
 
-                </td>
-            </tr>
-        </div>
+<!--        <tr th:each="user : ${allProfiles}" >-->
+<!--            <td><a th:href="'/rating/' + ${user.id}"><p th:text="${user.first_name +' '+ user.last_name}"></p></a></td>-->
+<!--            <td><p th:text="${user.leafs}"></p></td>-->
+<!--        </tr>-->
     </table>
     <a href="/">Главная</a>
 </div>
+
+
 </body>
 </html>

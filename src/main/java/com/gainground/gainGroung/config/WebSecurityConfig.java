@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -35,15 +36,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .disable()
                 .authorizeRequests()
                     //Доступ только для не зарегистрированных пользователей
-                    .antMatchers("/registration/**","/employee","/employer").not().fullyAuthenticated()
+                    .antMatchers("/registration/**","/employee","/employer","/css/**","/js/**").not().fullyAuthenticated()
                     //Доступ только для пользователей с ролью Администратор
-                    .antMatchers("/admin/**").hasRole("ADMIN")
+                    .antMatchers("/admin/**","/css/**","/js/**").hasRole("ADMIN")
 
                     //.antMatchers("/home").hasRole("USER")
                     //Доступ разрешен всем пользователей
-                    .antMatchers("/homeEmpl/**").hasRole("EMPL")
-                    .antMatchers("/homeEmplr/**").hasRole("EMPLR")
-                .antMatchers( "/resources/**").permitAll()
+                    .antMatchers("/homeEmpl/**","/css/**","/js/**").hasRole("EMPL")
+                    .antMatchers("/homeEmplr/**","/css/**","/js/**").hasRole("EMPLR")
+                .antMatchers( "/resources/**","/css/**","/js/**").permitAll()
                 //Все остальные страницы требуют аутентификации
                 .anyRequest().authenticated()
                 .and()
@@ -65,4 +66,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
     }
+
 }

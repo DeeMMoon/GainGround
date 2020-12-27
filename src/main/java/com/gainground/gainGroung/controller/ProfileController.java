@@ -1,9 +1,10 @@
 package com.gainground.gainGroung.controller;
 
-import com.gainground.gainGroung.entity.Post;
+import com.gainground.gainGroung.RoleRedirecter;
 import com.gainground.gainGroung.entity.ProfileEmpl;
 import com.gainground.gainGroung.entity.User;
 import com.gainground.gainGroung.repository.ProfileRepository;
+import com.gainground.gainGroung.repository.RoleRepository;
 import com.gainground.gainGroung.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -13,25 +14,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
+import java.util.Iterator;
 
 @Controller
 public class ProfileController {
     @Autowired
     private ProfileRepository profileRepository;
-    @Autowired
-    private UserRepository userRepository;
 
     @GetMapping("/profile")
     public String profileMain(@AuthenticationPrincipal User user, Model model){
         ProfileEmpl profileEmpl = profileRepository.findProfileEmplById(user.getProfileEmpl().getId());
         model.addAttribute("profile",profileEmpl);
-        return "profile";
+        return RoleRedirecter.redirecter(user, "profile-emplr", "profile-empl");
     }
     @GetMapping("/profile/edit")
     public String profileEdit(@AuthenticationPrincipal User user, Model model){
-        //model.addAttribute("profile",user.getPr);
+        model.addAttribute("profile",user.getProfileEmpl());
         return "profile-edit";
     }
     @PostMapping("/profile/edit")
@@ -39,15 +38,13 @@ public class ProfileController {
             @AuthenticationPrincipal User user,
             @RequestParam String firstName,
             @RequestParam String lastName,
-            @RequestParam String year,
-            @RequestParam String month,
-            @RequestParam String day,
+            @RequestParam Date year,
             @RequestParam String country,
             @RequestParam String phoneNumber,Model model){
         ProfileEmpl profileEmpl = profileRepository.findProfileEmplById(user.getProfileEmpl().getId());
         profileEmpl.setFirst_name(firstName);
         profileEmpl.setLast_name(lastName);
-        profileEmpl.setAge(day+"."+month+"."+year);
+        profileEmpl.setAge(year.toString());
         profileEmpl.setLocale(country);
         profileEmpl.setPhoneNumber(phoneNumber);
         profileRepository.save(profileEmpl);

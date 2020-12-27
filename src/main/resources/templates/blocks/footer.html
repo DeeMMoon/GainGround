@@ -1,9 +1,23 @@
 <div th:fragment="footer" xmlns:th="http://www.w3.org/1999/xhtml">
-<footer class="text-muted">
-    <div class="container">
-        <p class="float-right">
-            <a href="/home">Back to top</a>
-        </p>
-    </div>
-</footer>
+    <footer class="text-muted">
+        <button class="topbtn" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("myBtn").style.display = "block";
+                } else {
+                    document.getElementById("myBtn").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
+    </footer>
 </div>

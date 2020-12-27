@@ -1,13 +1,38 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="/css/registration.css"/>
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
-<body class="text-center">
-Выберите регистрацию
-<div class="container">
-<a href="/employee">Работник</a>
-    <a href="/employer">Работодатель</a>
+<body>
+
+<div class="split left">
+    <div class="left_container">
+        <div class="middle">
+            <form>
+                <button type="button" onclick='location.href="/employee"' class="employeebtn">Employee</button>
+            </form>
+        </div>
+    </div>
 </div>
+
+<div class="split right">
+    <div class="right_container">
+        <div class="middle">
+            <form>
+                <button type="button" onclick='location.href="/employer"' class="employerbtn">Employer</button>
+            </form>
+        </div>
+        <span onclick='location.href="/login"' class="close" title="Close Modal">×</span>
+    </div>
+</div>
+
 </body>
 </html>
