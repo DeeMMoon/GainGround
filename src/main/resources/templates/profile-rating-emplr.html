@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header-emplr :: header"></header>
+<div class="container mt-5">
+    <h1>Profile</h1>
+    <div class="container">
+        <h5 th:text="${profile.first_name}" th:default="undefined" name="firstname"/>
+        <h5 th:text="${profile.last_name}" th:default="undefined" name="lastname"/>
+        <h5 th:text="${profile.phoneNumber}" th:default="undefined" name="phoneNumber"/>
+        <h5 th:text="${profile.leafs}" th:default="undefined" name="leafs"/>
+        <h5 th:text="${profile.locale}" th:default="undefined" name="locale"/>
+        <h5 th:text="${profile.age}" th:default="undefined" name="locale"/>
+    </div>
+</div>
+<a th:href="'/rating/blog/' + ${profile.id}"> Достижения </a>
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

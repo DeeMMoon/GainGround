@@ -1,6 +1,5 @@
 package com.gainground.gainGroung.controller;
 
-import com.gainground.gainGroung.entity.ProfileEmpl;
 import com.gainground.gainGroung.service.UserService;
 import com.gainground.gainGroung.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;

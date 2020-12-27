@@ -4,8 +4,6 @@ import com.gainground.gainGroung.RoleRedirecter;
 import com.gainground.gainGroung.entity.ProfileEmpl;
 import com.gainground.gainGroung.entity.User;
 import com.gainground.gainGroung.repository.ProfileRepository;
-import com.gainground.gainGroung.repository.RoleRepository;
-import com.gainground.gainGroung.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Date;
-import java.util.Iterator;
 
 @Controller
 public class ProfileController {
@@ -31,7 +28,7 @@ public class ProfileController {
     @GetMapping("/profile/edit")
     public String profileEdit(@AuthenticationPrincipal User user, Model model){
         model.addAttribute("profile",user.getProfileEmpl());
-        return "profile-edit";
+        return RoleRedirecter.redirecter(user,"profile-edit-emplr","profile-edit-empl");
     }
     @PostMapping("/profile/edit")
     public String profileEditForm(

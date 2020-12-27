@@ -9,19 +9,14 @@ import com.gainground.gainGroung.repository.ProfileRepository;
 import com.gainground.gainGroung.repository.UserRepository;
 import com.gainground.gainGroung.service.PostService;
 import com.gainground.gainGroung.service.ProfileService;
-import com.gainground.gainGroung.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.method.P;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,20 +40,20 @@ public class RatingController {
         return RoleRedirecter.redirecter(user, "rating-emplr", "rating-empl");
     }
     @GetMapping("/rating/{profile_id}")
-    public String blogDetail(@PathVariable(value = "profile_id") long profId, Model model){
+    public String blogDetail(@PathVariable(value = "profile_id") long profId, Model model, User user){
         if(!profileRepository.existsById(profId)){
             return "redirect:/rating";
         }
         ProfileEmpl profileEmpl = profileRepository.findProfileEmplById(profId);
         model.addAttribute("profile",profileEmpl);
-        return "profile-rating";
+        return RoleRedirecter.redirecter(user,"profile-rating-emplr","profile-rating-empl");
     }
     @GetMapping("/rating/blog/{profile_id}")
     public String ratingBlog(@PathVariable(value = "profile_id") long profId, Model model, User user){
         ProfileEmpl profileEmpl = profileRepository.findProfileEmplById(profId);
         user=userRepository.findByProfileEmpl(profileEmpl);
         model.addAttribute("posts",postService.authorPosts(user.getId()));
-        return "post-rating";
+        return RoleRedirecter.redirecter(user,"post-rating-emplr","post-rating-empl");
     }
     @GetMapping("/rating/blog/posts/{el_id}")
     public String ratingBlogPost(@PathVariable(value = "el_id") long postId, Model model, User user){
@@ -69,6 +64,6 @@ public class RatingController {
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
         model.addAttribute("post",res);
-        return "rating-post-details";
+        return RoleRedirecter.redirecter(user,"rating-post-details-emplr","rating-post-details-empl");
     }
 }
