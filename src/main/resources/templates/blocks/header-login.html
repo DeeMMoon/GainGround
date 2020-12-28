@@ -1,16 +1,14 @@
 
 <div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
-    <div class="topnav" id="myTopnav">
-        <section>
+    <div class="topnav" id="myTopnav" >
+        <section id="header">
             <a class="header-modal-content"><b>GainGround</b></a>
-            <a class="active" href="/homeEmplr">Home</a>
-            <a class="header-text" href="/profile">Profile</a>
-            <a class="header-text" href="/err404">Messages</a>
-            <a class="header-text" href="/rating">Rating</a>
-            <a class="header-text" href="/about">About Us</a>
+            <a class="btn header-text" href="/employee">Employee</a>
+            <a class="btn header-text" href="/employer">Employer</a>
         </section>
         <aside>
-            <a class="header-exit" href="/logout">Log out</a>
+            <!--            <button onclick="document.getElementById('id01').style.display='block'" class="welcomebtn"><b>Welcome to GainGround</b></button>-->
+            <a onclick="document.getElementById('id01').style.display='block'" class="header-exit">Log in</a>
         </aside>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>

@@ -40,7 +40,7 @@ public class RatingController {
         return RoleRedirecter.redirecter(user, "rating-emplr", "rating-empl");
     }
     @GetMapping("/rating/{profile_id}")
-    public String blogDetail(@PathVariable(value = "profile_id") long profId, Model model, User user){
+    public String blogDetail(@PathVariable(value = "profile_id") long profId, Model model, @AuthenticationPrincipal User user){
         if(!profileRepository.existsById(profId)){
             return "redirect:/rating";
         }
@@ -49,21 +49,22 @@ public class RatingController {
         return RoleRedirecter.redirecter(user,"profile-rating-emplr","profile-rating-empl");
     }
     @GetMapping("/rating/blog/{profile_id}")
-    public String ratingBlog(@PathVariable(value = "profile_id") long profId, Model model, User user){
+    public String ratingBlog(@PathVariable(value = "profile_id") long profId, Model model, @AuthenticationPrincipal User user){
+        User findUser;
         ProfileEmpl profileEmpl = profileRepository.findProfileEmplById(profId);
-        user=userRepository.findByProfileEmpl(profileEmpl);
-        model.addAttribute("posts",postService.authorPosts(user.getId()));
+        findUser = userRepository.findByProfileEmpl(profileEmpl);
+        model.addAttribute("posts",postService.authorPosts(findUser.getId()));
         return RoleRedirecter.redirecter(user,"post-rating-emplr","post-rating-empl");
     }
     @GetMapping("/rating/blog/posts/{el_id}")
-    public String ratingBlogPost(@PathVariable(value = "el_id") long postId, Model model, User user){
+    public String ratingBlogPost(@PathVariable(value = "el_id") long postId, Model model, @AuthenticationPrincipal User user){
         if(!postRepository.existsById(postId)){
             return "redirect:/rating/blog";
         }
         Optional<Post> post = postRepository.findById(postId);
         ArrayList<Post> res = new ArrayList<>();
         post.ifPresent(res::add);
-        model.addAttribute("post",res);
+        model.addAttribute("posts",res);
         return RoleRedirecter.redirecter(user,"rating-post-details-emplr","rating-post-details-empl");
     }
 }

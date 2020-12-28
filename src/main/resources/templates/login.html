@@ -11,14 +11,27 @@
     </style>
 </head>
 <body>
-<div class="bg-img">
-    <div class="centered">
-        <button onclick="document.getElementById('id01').style.display='block'" class="welcomebtn"><b>Welcome to GainGround</b></button>
+<header th:insert="blocks/header-login :: header"></header>
+
+<div class="main">
+    <section class="up-section padding ">
+        <div class="container">
+            <h1 >Gain Ground</h1>
+            <h2>Here are the news of our site.</h2>
+        </div>
+    </section>
+
+    <div class="modal-content shadow">
+        <div class="container">
+            <p><b>Gain Ground</b> is a platform that empowers talented and
+                gifted children share their successes and achievements with the whole world,
+                and also find your dream job. It is a great platform for HR agencies and prospective entrepreneurs,
+                who are looking for the best employees.</p>
+        </div>
     </div>
 </div>
-
 <div id="id01" class="modal">
-    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+<!--    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>-->
     <form class="modal-content shadow" method="post" action="/login">
         <div class="container">
             <h1>Sign In</h1>
@@ -32,7 +45,7 @@
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
             </p>
 
-            <p>Don't have an account? <a href="/registration" style="color:dodgerblue"><b>Register now</b></a>.</p>
+<!--            <p>Don't have an account? <a href="/registration" style="color:dodgerblue"><b>Register now</b></a>.</p>-->
             <button class="signupbtn" type="submit">Sign in</button>
             <div class="clearfix">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>

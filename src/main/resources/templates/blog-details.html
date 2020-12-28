@@ -14,7 +14,11 @@
                 <h2 class="text-center" th:text="${el.title}"></h2>
                 <hr>
                 <p>
-                    <label><b>Article Content</b></label>
+                    <label><b>Anons</b></label>
+                <div class="title" th:text="${el.anons}"></div>
+                </p>
+                <p>
+                    <label><b>Content</b></label>
                 <div class="title" th:text="${el.fullText}"></div>
                 </p>
                 <p>
@@ -27,34 +31,6 @@
         </div>
     </div>
 </div>
-
-<!--<div class="modal-content shadow">-->
-<!--    <div class="container">-->
-<!--        <h1>Your Profile</h1>-->
-<!--        <hr>-->
-<!--        <p>-->
-<!--            <label><b>Name</b></label>-->
-<!--        <div class="title" th:text="${profile.first_name+' '+ profile.last_name}"></div>-->
-<!--        </p>-->
-<!--        <p>-->
-<!--            <label><b>Leafs</b></label>-->
-<!--        <div class="title" th:text="${profile.leafs}"></div>-->
-<!--        </p>-->
-<!--        <p>-->
-<!--            <label><b>Country</b></label>-->
-<!--        <div class="title" th:text="${profile.locale}"></div>-->
-<!--        </p>-->
-<!--        <p>-->
-<!--            <label><b>Phone number</b></label>-->
-<!--        <div class="title" th:text="${profile.phoneNumber}"></div>-->
-<!--        </p>-->
-<!--        <p>-->
-<!--            <label><b>Birth Date</b></label>-->
-<!--        <div class="title" th:text="${profile.age}"></div>-->
-<!--        </p>-->
-<!--        <a href="/profile/edit"style="color:dodgerblue"><b>Edit profile</b></a>-->
-<!--    </div>-->
-<!--</div>-->
 
 <div th:insert="blocks/footer :: footer"></div>
 </body>

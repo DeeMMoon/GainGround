@@ -29,6 +29,11 @@
     color: black;
 }
 
+.header-modal-content:hover {
+    background-color: #333 !important;
+    color: #f2f2f2 !important;
+}
+
 /* Add an active class to highlight the current page */
 .active {
     background-color: #4CAF50;
@@ -42,12 +47,13 @@
 
 .header-exit {
     float: right!important;
+    cursor: pointer;
     background-color: white!important;
     color: #000000!important;
 }
 
 .header-exit:hover {
-    background-color: black !important;
+    background-color: #4CAF50  !important;
     color: white !important;
 }
 

@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="utf-8">
     <title>Log in with your account</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/rating.css">
 </head>
 
 <body>
 <header th:insert="blocks/header-emplr :: header"></header>
-<div class="container">
-    <table class="container">
-        <thead>
-        <th>Name</th><br>
-        <th>Leafs</th><br>
-        </thead>
-        <div th:each="user : ${allProfiles}" >
-            <tr>
-                <td>
-                    <a th:href="'/rating/' + ${user.id}"><p th:text="${user.first_name +' '+ user.last_name}"/></a></td>
-                <td th:text="${user.leafs}"/>
-            </tr>
+
+<div class="main">
+    <section class="up-section padding ">
+        <div class="container">
+            <h1 >Gain Ground Rating</h1>
+            <h2>Here are the Rating of our site.</h2>
         </div>
-    </table>
+    </section>
+
+    <div class="main-container padding">
+        <table class="table">
+            <thead>
+            <tr>
+                <th><b>Name</b></th>
+                <th><b>Leafs</b></th>
+            </tr>
+            </thead>
+            <tr th:each="user : ${allProfiles}" >
+                <td><a th:href="'/rating/' + ${user.id}"><p th:text="${user.first_name +' '+ user.last_name}"></p></a></td>
+                <td><p th:text="${user.leafs}"></p></td>
+            </tr>
+        </table>
+    </div>
 </div>
+
+<div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>

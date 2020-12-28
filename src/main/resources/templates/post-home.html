@@ -20,18 +20,10 @@
     <div class="row row-cols-1 row-cols-2 row-cols-3">
         <div th:each=" el : ${posts}"  class="column">
             <div class="card shadow">
-                <svg class="placeholder-img card-img" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Achievement">
-                    <title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Achievement</text></svg>
                 <div class="card-body">
                     <h3 class="card-text" th:text="${el.title}" id="title"></h3>
                     <p class="card-text" th:text="${el.anons}" id="anons"></p>
                     <div class="d-flex justify-content-between align-items-center">
-<!--                        <div class="btn-group">-->
-<!--&lt;!&ndash;                            <button type="button" th:onclick="'/blog/' + ${el.id}" class="btn">More details</button>&ndash;&gt;-->
-<!--                            <button th:attr="onclick=|'/blog/' + upload('${el.id}')|" class="btn">More details</button>-->
-<!--&lt;!&ndash;                            th:attr="onclick=|upload(''/blog/' + ${el.id}')|"&ndash;&gt;-->
-<!--&lt;!&ndash;                            th:attr="onclick=|upload('${gallery}')|"&ndash;&gt;-->
-<!--                        </div>-->
                         <div class="pseudo-button-container shadow">
                             <div class="pseudo-button">
                                 <a class="p-b" th:href="'/blog/' + ${el.id}">More details</a>
