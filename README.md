@@ -1,5 +1,7 @@
 # GainGround
 
+## Project progress status - 55%
+
 ## About App
 The Gain Ground platform provides employers with a talent base for many years to come, and for talented, outstanding teenagers and students to get promising jobs that they have long dreamed of. Since the school exam system is not perfect and many cannot pass it with a high score, due to some reasons (for example, poor preparation at school, anxiety, unequal USE options and banal inattention), Gain Ground provides an alternative opportunity to realize oneself and demonstrate one's true potential. My platform is not an ordinary job search site, it is based on project and olympiad activities and a bonus system. This platform is a kind of symbiosis of a job search site and a project repository.
 
